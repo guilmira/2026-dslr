@@ -1,8 +1,13 @@
 # 2026-dslr
 Recreation of the Hogwarts Sorting Hat using logistic regression.
 
+## Working in Linux
+If using Windows, use WSL to run the project
+
 ## Instalación
-make run
+make
+source venv/bin/activate
+make deps
 
 ## Estructura
 Data visualization
