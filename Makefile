@@ -6,7 +6,7 @@
 #    By: guilmira <guilmira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 09:44:52 by guilmira          #+#    #+#              #
-#    Updated: 2026/03/27 10:54:12 by guilmira         ###   ########.fr        #
+#    Updated: 2026/03/27 11:04:36 by guilmira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ GRAPH_FILES = result.png
 #--------------------------------------------------------------------------------------------------------------RULES
 #Sobre test
 #test + CONDITION = TRUE OR FALSE
-#test -d = la CONDITION es si existe o no el directorio
+#test -d --> checks whether or not the directory exists
 
 all: install help
 
