@@ -6,7 +6,7 @@
 #    By: guilmira <guilmira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 09:44:52 by guilmira          #+#    #+#              #
-#    Updated: 2026/03/27 10:48:10 by guilmira         ###   ########.fr        #
+#    Updated: 2026/03/27 10:54:12 by guilmira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC1 = describe.py
 SRC_G1 = histogram.py
 SRC_G2 = scatter_plot.py
 SRC_G3 = pair_plot.py
+GRAPH_FILES = result.png
 #--------------------------------------------------------------------------------------------------------------RULES
 #Sobre test
 #test + CONDITION = TRUE OR FALSE
@@ -53,7 +54,7 @@ graphs:
 
 clean:
 	@rm -rf __pycache__
-	@rm -rf theta.txt result.png
+	@rm -rf $(GRAPH_FILES)
 	
 fclean: clean
 	@rm -rf $(VIRTUAL_ENV_NAME)
