@@ -6,7 +6,7 @@
 #    By: guilmira <guilmira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 10:13:10 by guilmira          #+#    #+#              #
-#    Updated: 2026/04/01 18:25:00 by guilmira         ###   ########.fr        #
+#    Updated: 2026/04/01 18:45:50 by guilmira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@
 
 import sys
 import csv
+import pandas as pd
 
 class dataVisualizer:
     
@@ -51,20 +52,37 @@ class dataVisualizer:
                     if len(row) < 2:  # fila incompleta
                         continue
                     self._dataSet.append(row)
+                
+                self._df = pd.DataFrame(self._dataSet, columns=self._columnNames)
+                
         except FileNotFoundError:   
             print(f"Error: {self._fileName} no existe.")
             sys.exit(1)
+        
+        
 
     def display_data(self, rows_to_show=5):
-        if not self._dataSet:
+        if self._df is None or self._df.empty:
             print("Sin datos cargados")
             return
         
-        print(f"Columnas: {self._columnNames} \n")
+        #print(f"Columnas: {self._columnNames} \n")
+        print(self._df.head(rows_to_show))
         print(f"Primeras {rows_to_show} filas \n")
         
-        for fila in self._dataSet[:5]:
-            print(f"{fila}")
+        # Ejemplo 1: acceder a una columna entera
+        print(f"\nEjemplo: columna '{self._columnNames[0]}' (primeras {rows_to_show} filas):")
+        print(self._df[self._columnNames[0]].head(rows_to_show))
+        
+        # Ejemplo 2: acceder a una fila entera
+        print(f"\nEjemplo: fila índice 0 completa:")
+        print(self._df.iloc[0])  # .iloc permite acceder a fila por posición
+        
+        # Ejemplo 3: acceder a un dato concreto
+        print(f"\nEjemplo: dato fila 0, columna 4:")
+        print(self._df.iat[1, 4])
+
+    #CHEKPOINT, familiarizandome con los indices
 
 if __name__ == "__main__":
     visual = dataVisualizer(sys.argv)
