@@ -6,7 +6,7 @@
 #    By: guilmira <guilmira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 10:13:10 by guilmira          #+#    #+#              #
-#    Updated: 2026/04/01 18:45:50 by guilmira         ###   ########.fr        #
+#    Updated: 2026/04/02 16:33:46 by guilmira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,28 +61,21 @@ class dataVisualizer:
         
         
 
-    def display_data(self, rows_to_show=5):
+    def display_data(self, rows_to_show=None):
         if self._df is None or self._df.empty:
             print("Sin datos cargados")
             return
         
-        #print(f"Columnas: {self._columnNames} \n")
-        print(self._df.head(rows_to_show))
-        print(f"Primeras {rows_to_show} filas \n")
-        
-        # Ejemplo 1: acceder a una columna entera
-        print(f"\nEjemplo: columna '{self._columnNames[0]}' (primeras {rows_to_show} filas):")
-        print(self._df[self._columnNames[0]].head(rows_to_show))
-        
-        # Ejemplo 2: acceder a una fila entera
-        print(f"\nEjemplo: fila índice 0 completa:")
-        print(self._df.iloc[0])  # .iloc permite acceder a fila por posición
-        
-        # Ejemplo 3: acceder a un dato concreto
-        print(f"\nEjemplo: dato fila 0, columna 4:")
-        print(self._df.iat[1, 4])
+        #para mostrar todos los datos
+        #pd.set_option('display.max_rows', None)
+        #pd.set_option('display.max_colwidth', None)
 
-    #CHEKPOINT, familiarizandome con los indices
+        if rows_to_show is None:
+            print(self._df)
+        else:
+            print(self._df.head(rows_to_show))
+
+
 
 if __name__ == "__main__":
     visual = dataVisualizer(sys.argv)
