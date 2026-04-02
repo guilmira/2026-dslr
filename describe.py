@@ -6,7 +6,7 @@
 #    By: guilmira <guilmira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 10:13:10 by guilmira          #+#    #+#              #
-#    Updated: 2026/04/02 16:33:46 by guilmira         ###   ########.fr        #
+#    Updated: 2026/04/02 17:56:52 by guilmira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,27 +16,26 @@ import sys
 import csv
 import pandas as pd
 
-class dataVisualizer:
+class DataManager:
     
     def __init__(self, arguments):
         
-        self._fileName = self.parameter_parser(arguments)
+        self.df = None
         self._dataSet = []
         self._columnNames = []
-        self.df = None
+        self._fileName = self.parameter_parser(arguments)
         
     def parameter_parser(self, arguments):
         
         if len(arguments) < 2:
             print("No se ha indicado fichero que leer")
-            sys.exit(1)
+            return None
         elif len(arguments) > 2:
             print("Demasiados argumentos introducidos. Introduzca un unico parametro con el nombre de fichero a leer")
-            sys.exit(1)
+            return None
         else:
             print(f"Datos cargados del fichero: {arguments[1]}")
             return arguments[1]
-
 
     def process_data(self):
         
@@ -59,8 +58,6 @@ class dataVisualizer:
             print(f"Error: {self._fileName} no existe.")
             sys.exit(1)
         
-        
-
     def display_data(self, rows_to_show=None):
         if self._df is None or self._df.empty:
             print("Sin datos cargados")
@@ -78,9 +75,9 @@ class dataVisualizer:
 
 
 if __name__ == "__main__":
-    visual = dataVisualizer(sys.argv)
-    visual.process_data()
-    visual.display_data()
+    manager = DataManager(sys.argv)
+    manager.process_data()
+    manager.display_data()
 
 # --- Slices en Python
     # slice = lista[inicio:fin:paso]
