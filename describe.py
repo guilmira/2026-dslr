@@ -6,11 +6,13 @@
 #    By: guilmira <guilmira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 10:13:10 by guilmira          #+#    #+#              #
-#    Updated: 2026/04/02 17:56:52 by guilmira         ###   ########.fr        #
+#    Updated: 2026/04/02 18:20:23 by guilmira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#codeando todo sin una sola linea de GPT
+#MISSING
+#All it has to do is display information for all numerical features like in the example
+#bonus es darle mas fields, ademas de min max, media etc.
 
 import sys
 import csv
